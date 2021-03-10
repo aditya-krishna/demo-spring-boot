@@ -3,8 +3,10 @@ pipeline {
   
   stages {
         stage('Build') {
-          echo "${GIT_BRANCH}"
-          echo "${GIT_COMMIT}"
+          steps {
+            echo "${GIT_BRANCH}"
+            echo "${GIT_COMMIT}"
+          }
         }
   }
 }
