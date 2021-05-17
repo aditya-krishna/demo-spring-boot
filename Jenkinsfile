@@ -9,21 +9,19 @@ pipeline {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
         script {
-          test_data = getChangeSet()
+          changeRequiresTerraformDeployment()
         }
       }
     }
   }
 }
 
-def notifyBuild() {
-  return getChangeSet()
-}
-
-def getChangeSet() {
-  return currentBuild.changeSets.collect { cs ->
-    cs.collect { entry ->
-        "* ${entry.author.fullName}: ${entry.msg}"
-    }.join("\n")
-  }.join("\n")
+def changeRequiresTerraformDeployment() {
+  currentBuild.changeSets.each { change ->
+    change.items.each { item ->
+      item.affectedFiles.each { file ->
+        echo "${file.editType.name} ${file.path}"
+      }
+    }
+  }
 }
