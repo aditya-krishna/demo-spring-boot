@@ -19,17 +19,22 @@ pipeline {
 def changeRequiresTerraformDeployment() {
   value = false
   
-  currentBuild.changeSets.each { change ->
-    change.items.each { item ->
-      item.affectedFiles.each { file ->
+  currentBuild.changeSets.find { change ->
+    change.items.find { item ->
+      item.affectedFiles.find { file ->
         echo "${file.editType.name} ${file.path}"
         
         if(file.path.contains('demo-spring-boot/src/test')) {
           value = true
-          break
         }
+        
+        return value
       }
+      
+      return value
     }
+    
+    return value
   }
   
   return value
