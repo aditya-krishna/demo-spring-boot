@@ -9,7 +9,7 @@ pipeline {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
         script {
-          test_data = notifyBuild()
+          test_data = getChangeSet()
         }
       }
     }
@@ -20,7 +20,6 @@ def notifyBuild() {
   return getChangeSet()
 }
 
-@NonCPS
 def getChangeSet() {
   return currentBuild.changeSets.collect { cs ->
     cs.collect { entry ->
