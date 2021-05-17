@@ -8,8 +8,9 @@ pipeline {
       steps {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
-        
-        test_data = notifyBuild()
+        script {
+          test_data = notifyBuild()
+        }
       }
     }
   }
