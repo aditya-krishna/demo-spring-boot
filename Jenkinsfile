@@ -9,7 +9,9 @@ pipeline {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
         
-        sh "git diff --quiet HEAD origin/master"
+        sh "git diff --quiet HEAD origin/master -- demo-spring-boot"
+        
+        sh "git diff --quiet HEAD origin/master -- ."
         
         script {
           getChanges()
