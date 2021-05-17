@@ -1,4 +1,4 @@
-import com.cloudbees.groovy.cps.NonCPS
+test_data = ''
 
 pipeline {
   agent any
@@ -9,14 +9,14 @@ pipeline {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
         
-        notifyBuild()
+        test_data = notifyBuild()
       }
     }
   }
 }
 
 def notifyBuild() {
-  def changeSet = getChangeSet()
+  return getChangeSet()
 }
 
 @NonCPS
