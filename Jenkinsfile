@@ -11,7 +11,7 @@ pipeline {
         
         sh "git diff --quiet HEAD origin/master -- demo-spring-boot  || echo changed"
         
-        sh "git diff --quiet HEAD origin/master -- / || echo changed2"
+        sh "git diff --quiet HEAD origin/master -- ./ || echo changed2"
       }
     }
   }
