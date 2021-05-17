@@ -1,3 +1,5 @@
+import com.cloudbees.groovy.cps.NonCPS
+
 pipeline {
   agent any
   
