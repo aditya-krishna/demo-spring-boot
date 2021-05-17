@@ -17,7 +17,7 @@ pipeline {
 
 @NonCPS
 def getChanges() {
-  changeSet = currentBuild.changeSets
+  changeSet = currentBuild.rawBuild.changeSets
   for (int i = 0; i < changeSet.size(); i++) {
     entries = changeSet[i].items;
     for (int j = 0; j < entries.length; j++) {
