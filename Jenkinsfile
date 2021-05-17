@@ -8,7 +8,7 @@ pipeline {
         echo "${GIT_COMMIT}"
         
         script {
-          changeSet = currentBuild.rawBuild.changeSets
+          changeSet = currentBuild.changeSets
           for (int i = 0; i < changeSet.size(); i++) {
             entries = changeSet[i].items;
             for (int j = 0; j < entries.length; j++) {
