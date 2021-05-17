@@ -8,7 +8,7 @@ pipeline {
         echo "${GIT_COMMIT}"
 
         script {
-          sh "git diff --quiet HEAD master"
+          sh "git diff --quiet HEAD origin/master"
         }
       }
     }
