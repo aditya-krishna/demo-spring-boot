@@ -19,6 +19,7 @@ public class DemoSpringBootApplication extends SpringBootServletInitializer {
     @Autowired
     private TeamDao teamDao;
 
+    
     public static void main(String[] args) {
         System.out.println("Running from main method");
         SpringApplication.run(DemoSpringBootApplication.class, args);
