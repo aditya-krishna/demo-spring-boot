@@ -9,10 +9,21 @@ pipeline {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
         
-        sh "git diff --quiet HEAD origin/master -- demo-spring-boot  || echo changed"
-        
-        sh "git diff --quiet HEAD origin/master -- ./ || echo changed2"
+        notifyBuild()
       }
     }
   }
+}
+
+def notifyBuild() {
+  def changeSet = getChangeSet()
+}
+
+@NonCPS
+def getChangeSet() {
+  return currentBuild.changeSets.collect { cs ->
+    cs.collect { entry ->
+        "* ${entry.author.fullName}: ${entry.msg}"
+    }.join("\n")
+  }.join("\n")
 }
