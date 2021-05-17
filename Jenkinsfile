@@ -9,9 +9,9 @@ pipeline {
         echo "${GIT_BRANCH}"
         echo "${GIT_COMMIT}"
         
-        sh "git diff HEAD origin/master -- demo-spring-boot"
+        sh "git diff --quiet HEAD origin/master -- demo-spring-boot  || echo changed"
         
-        sh "git diff HEAD origin/master -- ."
+        sh "git diff --quiet HEAD origin/master -- . || echo changed2"
       }
     }
   }
