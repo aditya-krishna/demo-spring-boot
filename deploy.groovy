@@ -24,7 +24,7 @@ pipeline {
                     commit_message = "Merge release ${params.IMAGE_VERSION} to master"
                     
                     sh "git checkout master"
-                    sh "git merge --no-ff -m $commit_message origin/${params.DEPLOY_BRANCH}~1"
+                    sh "git merge --no-ff -m '$commit_message' origin/${params.DEPLOY_BRANCH}~1"
                     sh "git push --all && git push --tags"
                 }
             }
