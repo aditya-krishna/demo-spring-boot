@@ -28,7 +28,7 @@ pipeline {
                     commit_message = "Merge ${params.RELEASE_BRANCH} into develop"
                     
                     sh "git checkout develop"
-                    sh "git merge --no-ff -m $commit_message ${params.RELEASE_BRANCH}"
+                    sh "git merge --no-ff -m '$commit_message' ${params.RELEASE_BRANCH}"
                     sh "git push --all && git push --tags"
                 }
             }
