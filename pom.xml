@@ -4,7 +4,7 @@
 	<scm>
 	  <connection>scm:git:git@github.com:aditya-krishna/demo-spring-boot.git</connection>
 	  <url>scm:git:git@github.com:aditya-krishna/demo-spring-boot.git</url>
-	  <tag>demo-spring-boot-0.0.3</tag>
+	  <tag>HEAD</tag>
   </scm>
 	
 	
@@ -19,7 +19,7 @@
 	
 	<groupId>com.example</groupId>
 	<artifactId>demo-spring-boot</artifactId>
-	<version>0.0.3</version>
+	<version>0.0.4-SNAPSHOT</version>
 	<name>demo-spring-boot</name>
 	<description>Demo project for Spring Boot</description>
 	
