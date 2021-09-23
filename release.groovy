@@ -19,8 +19,8 @@ pipeline {
             steps {
                 checkout scm
 
-                sh "mvn -s settings.xml -B -DreleaseVersion=${params.RELEASE_VERSION} -DautoVersionSubmodules=true -Darguments='-Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Dmaven.deploy.skip=true' release:clean release:prepare"
-                sh "mvn -s settings.xml -B -Darguments='-Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Dmaven.deploy.skip=true' release:perform"
+                sh "mvn -B -DreleaseVersion=${params.RELEASE_VERSION} -DautoVersionSubmodules=true -Darguments='-Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Dmaven.deploy.skip=true' release:clean release:prepare"
+                sh "mvn -B -Darguments='-Dmaven.test.skip=true -Dmaven.javadoc.skip=true -Dmaven.deploy.skip=true' release:perform"
 
                 script {
                     echo "Merging code to develop branch"
